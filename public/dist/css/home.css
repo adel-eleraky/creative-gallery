@@ -1,0 +1,33 @@
+.home-page nav {
+    background-color: #d0d9e2 !important;
+    box-shadow: 0 0 9px 7px #aed2d4;
+}
+.home-page header {
+    background-image: url("../img/header_BG.jpg") ;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 500px;
+    padding: 100px 0;
+}
+.home-page header h2 {
+    font-size: 50px;
+}
+.home-page .gallery .card {
+    box-shadow: 0 0 9px 4px #d0d9e2;
+}
+.home-page .gallery .card .title {
+    display: block ;
+    text-align: center ;
+    font-weight: bold ;
+    border-bottom: 1px solid #ccc ;
+    padding-bottom: 5px;
+}
+.home-page footer {
+    padding: 20px 0;
+    background-color: #d0d9e2 ;
+    color: black;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+}

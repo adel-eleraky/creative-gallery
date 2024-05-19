@@ -12,9 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('images', function (Blueprint $table) {
+
             $table->id();
-            $table->string('name');
-            $table->string('path');
+            $table->foreignId('user_id')->constrained('users');
+            $table->string('title');
+            $table->string('slug');
+            $table->string('watermarkimage');
+            $table->string('image');
+            $table->decimal('price', 8, 2);
+            $table->text('description');
             $table->timestamps();
         });
     }
