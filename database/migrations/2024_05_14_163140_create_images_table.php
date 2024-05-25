@@ -16,11 +16,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->string('title');
-            $table->string('slug');
             $table->string('watermarkimage');
             $table->string('image');
+            $table->enum('type', ['wedding', 'ai', 'nature']);
             $table->decimal('price', 8, 2);
-            $table->text('description');
             $table->timestamps();
         });
     }

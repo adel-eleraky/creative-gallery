@@ -18,11 +18,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet" href={{ asset('dist/css/adminlte.min.css') }}>
     <link rel="stylesheet" href={{ asset('dist/css/adminlte.css') }}>
-    <link rel="stylesheet" href={{ asset('dist/css/dashboard.css') }}>
-
+    @yield('css')
 </head>
 
-<body class="hold-transition sidebar-mini dashboard">
+<body class="hold-transition sidebar-mini">
     <div class="wrapper">
 
         <!-- Navbar -->
@@ -33,36 +32,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="{{ route("dashboard") }}" class="nav-link">Home</a>
+                    <a href="{{ route("dashboard.index") }}" class="nav-link">Home</a>
                 </li>
             </ul>
 
-            <!-- Right navbar links -->
-            <ul class="navbar-nav ml-auto">
-                <!-- Navbar Search -->
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-                        <i class="fas fa-search"></i>
-                    </a>
-                    <div class="navbar-search-block">
-                        <form class="form-inline">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search"
-                                    aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-navbar" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                        <i class="fas fa-times"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </li>
 
-            </ul>
         </nav>
         <!-- /.navbar -->
 
@@ -110,6 +84,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <p>Images</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('profile.index') }}" class="nav-link">
+                                <i class="nav-icon fas fa-image"></i>
+                                <p>edit profile</p>
+                            </a>
+                        </li>
+                        @if(auth()->user()->isAdmin) 
+                            <li class="nav-item">
+                                <a href="{{ route('users.index') }}" class="nav-link">
+                                    <i class="nav-icon fas fa-image"></i>
+                                    <p>Users</p>
+                                </a>
+                            </li>
+                        @endif
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -119,51 +107,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <!-- Content Header (Page header) -->
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-
-                        <div class="col-12 col-sm-6">
-                            <h1>Images</h1>
-                        </div>
-                        <div class="col-12 col-sm-6 text-right">
-                            <a href="{{ route('images.create') }}" class="btn btn-primary "> Add Image </a>
-                        </div>
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
-            </div>
-            <!-- /.content-header -->
-
-            <!-- main content -->
-            <div class="images-main-content p-3">
-                <table class="table">
-                    <thead>
-                        <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">title</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">price</th>
-                        <th scope="col">Created_at</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($images as $image)
-                            <tr>
-                                <td>{{ $image->id }}</td>
-                                <td><img src="{{ asset('storage/images/' . $image->image) }}" alt="image"></td>
-                                <td>{{ $image->title }}</td>
-                                <td>{{ $image->description }}</td>
-                                <td>{{ $image->price }}</td>
-                                <td>{{ $image->created_at }}</td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+            @yield("content")
         </div>
-        <!-- /.content-wrapper -->
 
         <!-- Control Sidebar -->
         <aside class="control-sidebar control-sidebar-dark">
@@ -188,6 +133,5 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src={{ asset('dist/js/adminlte.min.js') }}></script>
     @yield('js')
 </body>
-
 
 </html>

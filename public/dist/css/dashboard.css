@@ -1,3 +1,8 @@
 .dashboard .images-main-content table img {
     width: 100px;
 }
+.success-message {
+    margin: auto;
+    text-align: center;
+    width: fit-content;
+}
