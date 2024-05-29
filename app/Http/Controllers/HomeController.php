@@ -11,7 +11,6 @@ class HomeController extends Controller
     public function index()
     {
         $images = Image::all();
-        // dd($images);
         return view('home' , compact('images'));
     }
 }

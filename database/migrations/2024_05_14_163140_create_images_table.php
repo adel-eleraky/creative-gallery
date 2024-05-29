@@ -16,9 +16,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users');
             $table->string('title');
-            $table->string('watermarkimage');
             $table->string('image');
-            $table->enum('type', ['wedding', 'ai', 'nature']);
+            $table->enum('type', ['wedding', 'ai', 'nature', 'graphic']);
             $table->decimal('price', 8, 2);
             $table->timestamps();
         });

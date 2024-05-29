@@ -13,7 +13,7 @@ class UserController extends Controller
     public function create() {
 
         $user = auth()->user();
-        return view('dashboard.profile.create' , compact('user'));
+        return view('dashboard.profile.index' , compact('user'));
     }
 
     public function editProfile(Request $request) {

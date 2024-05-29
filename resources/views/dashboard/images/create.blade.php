@@ -37,11 +37,17 @@
             </div>
             <div class="row mb-4">
                 <div class="input col-12 col-sm-6">
-                    <label for="watermarkImage" class="form-label">upload image with watermark</label>
-                    <input class="form-control" type="file" id="watermarkImage" name="watermarkimage">
-                    @if($errors->has("watermarkimage"))
+                    <label for="type" class="form-label">Image type</label>
+                    <select name="type" id="type" class="form-select" aria-label="Select image type">
+                        <option value="">Choose image type</option>
+                        <option value="wedding">Wedding</option>
+                        <option value="nature">Nature</option>
+                        <option value="ai">AI</option>
+                        <option value="graphic">Graphic</option>
+                    </select>
+                    @if($errors->has("type"))
                         <div class="alert alert-danger" role="alert" >
-                            {{ $errors->first("watermarkimage") }}
+                            {{ $errors->first("type") }}
                         </div>
                     @endif
                 </div>
@@ -54,20 +60,6 @@
                         </div>
                     @endif
                 </div>
-            </div>
-            <div class="mb-3">
-                <label for="type" class="form-label">Image type</label>
-                <select name="type" id="type" class="form-select" aria-label="Select image type">
-                    <option value="">Choose image type</option>
-                    <option value="wedding">Wedding</option>
-                    <option value="nature">Nature</option>
-                    <option value="ai">AI</option>
-                </select>
-                @if($errors->has("type"))
-                    <div class="alert alert-danger" role="alert" >
-                        {{ $errors->first("type") }}
-                    </div>
-                @endif
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

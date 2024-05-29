@@ -69,13 +69,13 @@ scratch. This page gets rid of all links and provides the needed nature only.
             <button data-filter=".wedding">wedding</button>
             <button data-filter=".nature">nature</button>
             <button data-filter=".ai">ai</button>
+            <button data-filter=".graphic">graphic</button>
         </div><br>
     </div>
     <div class="box-listing">
         <div class="container">
             <div class="row">
                 @foreach ($images as $image)
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                         <div class="card box-item {{ $image->type }}" data-category="{{ $image->type }}" style="position: unset;">
                             <img src="{{ asset('storage/images/'. $image->type . '/' . $image->image) }}" class="card-img-top" alt="...">
                             <div class="card-body p-2">
@@ -84,23 +84,10 @@ scratch. This page gets rid of all links and provides the needed nature only.
                                 <p class="type">Type: {{ $image->type }}</p>
                             </div>
                         </div>
-                    </div>
                 @endforeach
             </div>
         </div>
     </div>
-    <!-- <div class="box-listing">
-        @foreach ($images as $image)
-            <div class="box-item {{ $image->type }}" data-category="{{ $image->type }}" style="width: 18rem;">
-                <img src="{{ asset('storage/images/'. $image->type . '/' . $image->image) }}" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="title ">{{ $image->title }}</h5>
-                    <p>Price: {{ $image->price }} $ </p>
-                    <a href="#" class="btn btn-primary">Buy Now</a>
-                </div>
-            </div>
-        @endforeach
-    </div> -->
     <div class="about-us" id="about-us">
         <section id="about-us" class="container mt-5">
             <h2 class="text-center fw-bold"> About Us </h2>

@@ -36,3 +36,6 @@ body {
     font-size: 25px;
     font-weight: bold;
 }
+.box-item img {
+    height: 350px;
+}

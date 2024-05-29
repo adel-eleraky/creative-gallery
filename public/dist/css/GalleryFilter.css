@@ -38,13 +38,13 @@
 }
 
 .box-item {
-    /* width: calc(33.3% - 30px); */
+    width: calc(33.3% - 30px);
     /* height: 90px; */
     position: unset !important;
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 0 5px #fff;
-    /* margin: 15px; */
+    margin: 15px;
     /* padding: 40px 0; */
     /* transition: all 0.2s ease-out; */
 }
